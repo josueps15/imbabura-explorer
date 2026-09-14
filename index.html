@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ibarreños por una Semana · Imbabura Explorer</title>
+  <meta name="description" content="Explora gastronomía, lugares y experiencias únicas en Ibarra, Imbabura y sus alrededores."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <!-- Leaflet Map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<!-- ═══════════════════════════════ HERO ═══════════════════════════════ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tag"><i class="fa-solid fa-location-dot"></i> &nbsp;Ibarra · Imbabura · Ecuador</div>
+    <h1>Ibarreños<br/><span>por una semana</span></h1>
+    <p>Para los grandes amigos que vienen desde Santa Elena 🤍<br/>Explora todo lo que esta tierra tiene para ofrecer.</p>
+    <a href="#explorer" class="hero-cta" id="heroCtaBtn">
+      <i class="fa-solid fa-map-location-dot"></i> Abrir el Mapa
+    </a>
+  </div>
+  <div class="hero-scroll-hint"><i class="fa-solid fa-chevron-down"></i></div>
+</section>
+
+<!-- ═══════════════════════════════ MAIN APP ═══════════════════════════════ -->
+<main id="explorer" class="explorer">
+
+  <!-- ── FILTER BAR ── -->
+  <nav class="filter-bar" role="tablist">
+    <div class="filter-title">Explorar:</div>
+    <button class="filter-btn active" data-category="todos" role="tab">
+      <i class="fa-solid fa-border-all"></i> Todos
+    </button>
+    <button class="filter-btn" data-category="lugares" role="tab">
+      <i class="fa-solid fa-mountain-sun"></i> Lugares
+    </button>
+    <button class="filter-btn" data-category="gastronomia" role="tab">
+      <i class="fa-solid fa-utensils"></i> Gastronomía
+    </button>
+    <button class="filter-btn" data-category="experiencias" role="tab">
+      <i class="fa-solid fa-compass"></i> Experiencias
+    </button>
+    <button class="filter-btn" data-category="huecas" role="tab">
+      <i class="fa-solid fa-store"></i> Huecas
+    </button>
+    <div class="filter-count" id="filterCount">18 lugares</div>
+  </nav>
+
+  <!-- ── MAP ── -->
+  <div id="map"></div>
+
+  <!-- ── HOVER TOOLTIP ── -->
+  <div class="hover-tooltip" id="hoverTooltip">
+    <div class="ht-img-wrap">
+      <img id="htImg" src="" alt=""/>
+      <div class="ht-badge" id="htBadge"></div>
+    </div>
+    <div class="ht-body">
+      <h4 id="htTitle"></h4>
+      <p class="ht-location" id="htLocation"><i class="fa-solid fa-location-dot"></i> <span></span></p>
+      <p class="ht-time" id="htTime"><i class="fa-regular fa-clock"></i> <span></span></p>
+      <p class="ht-hint">Haz clic para ver más <i class="fa-solid fa-arrow-right"></i></p>
+    </div>
+  </div>
+
+</main>
+
+<!-- ═══════════════════════════════ POPUP / MODAL ═══════════════════════════════ -->
+<div class="popup-backdrop" id="popupBackdrop">
+  <div class="popup-card" id="popupCard" role="dialog" aria-modal="true">
+    <button class="popup-close" id="popupClose" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></button>
+
+    <!-- Gallery -->
+    <div class="gallery-wrap" id="galleryWrap">
+      <div class="gallery-track" id="galleryTrack"></div>
+      <button class="gallery-nav prev" id="galleryPrev"><i class="fa-solid fa-chevron-left"></i></button>
+      <button class="gallery-nav next" id="galleryNext"><i class="fa-solid fa-chevron-right"></i></button>
+      <div class="gallery-dots" id="galleryDots"></div>
+      <div class="gallery-badge" id="galleryBadge"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="popup-body">
+      <h2 id="popupTitle"></h2>
+      <div class="popup-meta">
+        <span id="popupLocation"><i class="fa-solid fa-location-dot"></i> <span></span></span>
+        <span id="popupTime"><i class="fa-regular fa-clock"></i> <span></span></span>
+      </div>
+      <p class="popup-desc" id="popupDesc"></p>
+      <div class="popup-tips" id="popupTips"></div>
+      <div class="popup-links" id="popupLinks"></div>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-logo">🏔️ Imbabura Explorer</span>
+    <span>Hecho con cariño para los amigos que vienen desde la costa 🌊 &nbsp;·&nbsp; Ibarra, Ecuador</span>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
